@@ -283,6 +283,7 @@
         }
 
         function mousePressed(){
+          event.preventDefault();
           if(!playing) {
             playing = true;
             clear();
@@ -470,6 +471,19 @@
           textSize(h1);
           document.addEventListener('keypress', keyPressed);
           document.addEventListener('mousedown', mousePressed);
+           // Prevent default touch actions for the entire document or specific elements
+          document.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            if (playing) {
+              bird.flap();
+            } else {
+              playing = true;
+              clear();
+              bird.flap();
+            }
+          }, { passive: false });
+          document.documentElement.style.touchAction = 'manipulation';
+          document.body.style.touchAction = 'manipulation';
         }
 
         function clear() {
