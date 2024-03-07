@@ -16,7 +16,7 @@
   <body>
     <script>
       var tokenHash =
-        "0x82788b06f76fa3c1afdb5b32d0183b8d7fd4f0fcc0c8a89508cb0c3183d207af";
+        `0x82788b06f76fa3c1afdb5b32d0183b8d7fd4f0fcc0c8a89508cb0c3183d${Math.random() * 100}af`;
       var tokenData = { hash: tokenHash };
     </script>
     <script src="https://btc.genify.xyz/js/genify_random.js"></script>
@@ -98,7 +98,7 @@
             this.r = width/16;
             this.gravity = height / (50 * 40) * 1.3;
             this.velocity = 0;
-            this.lift =  -height / 45;
+            this.lift =  -height / 50;
             this.friction = 0.1;
             this.score = 0;
             this.up = false;
@@ -193,7 +193,7 @@
           constructor() {
             this.x = width;
             this.w = width/10;
-            this.gap = height / R.random_num(3.4, 6);
+            this.gap = height / R.random_num(3.4, 4);
             this.min_height = height / 3.6;
             this.max_height = height - this.min_height - this.gap;
             this.top = floor(R.random_num(this.min_height, this.max_height));
